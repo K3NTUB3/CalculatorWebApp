@@ -9,9 +9,13 @@ namespace CalculatorWebApp.Project_Class
     internal class HistoryClass
     {
         private string history;
-        public HistoryClass(string input) 
+        public void AddToHistory(string input)
         {
-            history = input;
+            history += input;
+        }
+        public string GetHistory()
+        {
+            return history; 
         }
     }
 }
