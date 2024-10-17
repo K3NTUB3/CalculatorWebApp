@@ -6,11 +6,12 @@ namespace CalculatorWebApp
 {
     public partial class MainForm : Form
     {
-        string history=""; // This is temporary. it will be initialized and utilized using class. wait for further update!
+        private OperationClass calculator = new OperationClass();
+        private HistoryClass history = new HistoryClass();
         string lastHistory;
         bool isTaskPerfomed = false;
         bool hasDecimal = false;
-        private OperationClass calculator = new OperationClass();
+
         public MainForm()
         {
             InitializeComponent();
@@ -80,7 +81,7 @@ namespace CalculatorWebApp
                 double result = calculator.ProcessExpression(txtCalculator.Text);
                 lblCurrentHistory.Text = txtCalculator.Text + " =";
                 lastHistory = txtCalculator.Text;
-                history += txtCalculator.Text + " = " + result.ToString()+ "\n";
+                history.AddToHistory(txtCalculator.Text + " = " + result.ToString()+ "\n");
                 txtCalculator.Text = result.ToString();
             }
             catch
@@ -107,7 +108,7 @@ namespace CalculatorWebApp
                 MessageBox.Show("No calculation history yet.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            MessageBox.Show("Calculation History: \n\n" + history.Trim(), "System Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Calculation History: \n\n" + history.GetHistory(), "System Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void btnBackSpace_Click(object sender, EventArgs e)
         {
