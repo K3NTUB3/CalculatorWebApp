@@ -8,13 +8,14 @@ namespace CalculatorWebApp
     {
         private OperationClass calculator = new OperationClass();
         private HistoryClass history = new HistoryClass();
-        string lastHistory;
-        bool isTaskPerfomed = false;
-        bool hasDecimal = false;
+        private string lastHistory;
+        private bool isTaskPerfomed = false;
+        private bool hasDecimal = false;
 
         public MainForm()
         {
             InitializeComponent();
+            UC_history.Visible = false;
         }
 
         private void btn0_Click(object sender, EventArgs e)
@@ -81,7 +82,7 @@ namespace CalculatorWebApp
                 double result = calculator.ProcessExpression(txtCalculator.Text);
                 lblCurrentHistory.Text = txtCalculator.Text + " =";
                 lastHistory = txtCalculator.Text;
-                history.AddToHistory(txtCalculator.Text + " = " + result.ToString()+ "\n");
+                history.AddToHistory(txtCalculator.Text + " = " + result.ToString());
                 txtCalculator.Text = result.ToString();
             }
             catch
@@ -103,12 +104,8 @@ namespace CalculatorWebApp
         }
         private void btnHistory_Click(object sender, EventArgs e) 
         {
-            if (history.Equals(""))
-            {
-                MessageBox.Show("No calculation history yet.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            MessageBox.Show("Calculation History: \n\n" + history.GetHistory(), "System Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            UC_history.Visible = true;
+            UC_history.SetHistory(history);
         }
         private void btnBackSpace_Click(object sender, EventArgs e)
         {
@@ -121,8 +118,6 @@ namespace CalculatorWebApp
                 }
                 txtCalculator.Text = txtCalculator.Text.Remove(txtCalculator.TextLength - 1, 1);
             }
-        }
-
-        
+        }     
     }
 }

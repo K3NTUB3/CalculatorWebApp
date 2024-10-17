@@ -34,6 +34,7 @@
             this.btnHistory = new System.Windows.Forms.Button();
             this.txtCalculator = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnBackSpace = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
             this.btnEquals = new System.Windows.Forms.Button();
@@ -51,7 +52,7 @@
             this.btn9 = new System.Windows.Forms.Button();
             this.btn8 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.UC_history = new CalculatorWebApp.UC_history();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -104,6 +105,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(158)))), ((int)(((byte)(159)))));
+            this.panel2.Controls.Add(this.UC_history);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnBackSpace);
             this.panel2.Controls.Add(this.btnDivide);
@@ -127,6 +129,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(470, 514);
             this.panel2.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(95)))), ((int)(((byte)(85)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(99)))), ((int)(((byte)(103)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("DigifaceWide", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 410);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 93);
+            this.button1.TabIndex = 17;
+            this.button1.Text = ".";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.DecimalValue_Click);
             // 
             // btnBackSpace
             // 
@@ -416,22 +435,12 @@
             this.btn7.UseVisualStyleBackColor = false;
             this.btn7.Click += new System.EventHandler(this.NumericValue_Click);
             // 
-            // button1
+            // UC_history
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(95)))), ((int)(((byte)(85)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(99)))), ((int)(((byte)(103)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("DigifaceWide", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 410);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 93);
-            this.button1.TabIndex = 17;
-            this.button1.Text = ".";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.DecimalValue_Click);
+            this.UC_history.Location = new System.Drawing.Point(0, 0);
+            this.UC_history.Name = "UC_history";
+            this.UC_history.Size = new System.Drawing.Size(470, 514);
+            this.UC_history.TabIndex = 18;
             // 
             // MainForm
             // 
@@ -477,6 +486,7 @@
         private System.Windows.Forms.Label lblCurrentHistory;
         private System.Windows.Forms.Button btnBackSpace;
         private System.Windows.Forms.Button button1;
+        private UC_history UC_history;
     }
 }
 

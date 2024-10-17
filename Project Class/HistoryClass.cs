@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculatorWebApp.Project_Class
 {
-    internal class HistoryClass
+    public class HistoryClass
     {
         private string history;
+
         public void AddToHistory(string input)
         {
-            history += input;
+            history += input + Environment.NewLine;
         }
+
         public string GetHistory()
         {
-            return history; 
+            return history;
         }
     }
 }
